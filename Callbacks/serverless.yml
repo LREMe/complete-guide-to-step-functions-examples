@@ -6,10 +6,12 @@ plugins:
 provider:
   name: aws
   runtime: nodejs10.x
-  iamRoleStatements:
-    - Effect: Allow
-      Action: states:SendTaskSuccess
-      Resource: '*'
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: states:SendTaskSuccess
+          Resource: '*'
 
 functions:
   sqs:
